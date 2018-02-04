@@ -9,12 +9,12 @@ router.post('/', async (req, res, next) => {
     mobile
   } = req.body
   if (!url || !mobile) {
-    res.json({
+    return res.json({
       message: '请将信息填写完整'
     })
   }
   if (!/^1\d{10}$/.test(mobile)) {
-    res.json({
+    return res.json({
       message: '请填写 11 位手机号码'
     })
   }

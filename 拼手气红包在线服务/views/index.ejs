@@ -20,11 +20,15 @@
       align-items: center;
     }
 
+    .panel {
+      width: 375px;
+      height: 350px;
+    }
   </style>
 </head>
 
 <body>
-  <div class="panel panel-default" style="width: 375px; height: 350px;">
+  <div class="panel panel-default">
     <div class="panel-heading">饿了么 · 一键领取手气最佳红包</div>
     <div class="panel-body">
       <div class="form-group">
@@ -42,12 +46,12 @@
         <pre>领取时间大概在 15 秒左右，请耐心等待</pre>
       </div>
       <div>
-        <a class="btn btn-link" href="https://github.com/game-helper/eleme" target="_blank">已在 GITHUB 开源</a>
+        <a class="btn btn-link" href="https://github.com/game-helper/eleme" target="_blank">查看源码</a>
       </div>
     </div>
   </div>
 
-  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
   <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script>
     $('#submit').on('click', function (e) {
@@ -67,7 +71,6 @@
           alert('服务器繁忙')
         })
     })
-
   </script>
 </body>
 

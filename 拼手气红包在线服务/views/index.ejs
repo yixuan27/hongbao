@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>饿了么 · 一键领取手气最佳红包</title>
+  <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      padding: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="panel panel-default" style="width: 375px; height: 320px;">
+    <div class="panel-heading">饿了么 · 一键领取手气最佳红包</div>
+    <div class="panel-body">
+      <div class="form-group">
+        <label for="mobile">要领取最佳红包的手机号码</label>
+        <input type="mobile" class="form-control" id="mobile" placeholder="11位手机号码">
+      </div>
+      <div class="form-group">
+        <label for="url">饿了么分享出来的红包链接</label>
+        <input type="text" class="form-control" id="url" placeholder="https://h5.ele.me/hongbao/开头的链接">
+      </div>
+      <div class="form-group">
+        <button type="button" class="btn btn-default" id="submit">马上领取</button>
+      </div>
+      <div>
+        <a class="btn btn-link" href="https://github.com/game-helper/eleme" target="_blank">已在 GITHUB 开源</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+    $('#submit').on('click', function (e) {
+      var $submit = $(this)
+      $submit.text('正在领取...').prop('disabled', true)
+      $.post('/hongbao', {
+          url: $.trim($('#url').val()),
+          mobile: $.trim($('#mobile').val())
+        })
+        .always(function () {
+          $submit.text('马上领取').prop('disabled', false)
+        })
+        .done(function (res) {
+          alert(res.message)
+        })
+        .fail(function (err) {
+          alert('服务器繁忙')
+        })
+    })
+
+  </script>
+</body>
+
+</html>

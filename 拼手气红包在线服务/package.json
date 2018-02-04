@@ -1,6 +1,9 @@
 {
   "scripts": {
-    "start": "node ./bin/www"
+    "postinstall": "npm i -g pm2",
+    "dev": "node ./bin/www && open http://127.0.0.1:3007",
+    "start": "pm2 start ./bin/www --name eleme-hongbao --instances 2",
+    "update": "pm2 update"
   },
   "dependencies": {
     "body-parser": "~1.18.2",

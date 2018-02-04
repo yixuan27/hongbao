@@ -24,7 +24,7 @@ router.post('/', async (req, res, next) => {
       mobile
     })
     res.json({
-      message: '领取成功'
+      message: '领取完毕，打开饿了么 APP 查看红包是否到账'
     })
   } catch (e) {
     res.json({

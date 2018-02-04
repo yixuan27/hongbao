@@ -17,6 +17,11 @@ router.post('/', async (req, res, next) => {
       message: '请填写 11 位手机号码'
     })
   }
+  if (url.indexOf('h5.ele.me') === -1) {
+    return res.json({
+      message: '请填写正确的饿了么红包链接'
+    })
+  }
   try {
     await request({
       url,

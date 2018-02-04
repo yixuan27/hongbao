@@ -47,16 +47,16 @@ module.exports = async ({
       weixin_username: ''
     })
 
-    // 计算剩余几个为幸运红包
+    // 计算剩余第几个为最佳红包
     const number = query.lucky_number - promotion_records.length
     if (number <= 0) {
-      console.log('幸运红包已被领取')
+      console.log('最佳红包已被领取')
       return
     }
 
     console.log(`还要领 ${number} 个红包`)
     index++
-    // 如果是幸运红包，指定手机号领取
+    // 如果这个是最佳红包，换成指定的手机号领取
     await lottery(number === 1 ? mobile : null)
   }
 }

@@ -2,7 +2,6 @@ var express = require('express')
 var router = express.Router()
 var request = require('../../拼手气红包/src/request')
 
-/* GET users listing. */
 router.post('/', async (req, res, next) => {
   const {
     url,

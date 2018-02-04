@@ -6,16 +6,12 @@
 
 ## 使用
 
-### 在线服务
-
-http://eleme.gamehelper.ga/
-
-### 本地运行
-
 - 安装 Node.js 9.x +
 - `npm i` 安装依赖
 - 编辑 [src/index.js](src/index.js) 中的 `mobile`（要领红包的手机号码） 和 `url`（饿了么红包链接）
 - `npm start` 自动秒红包
+
+> 本地运行太麻烦？访问 http://eleme.gamehelper.ga/ 在线服务
 
 ## 截图
 

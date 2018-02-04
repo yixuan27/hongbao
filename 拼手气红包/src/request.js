@@ -15,6 +15,7 @@ module.exports = async ({
   mobile,
   url
 }) => {
+  console.log(url)
   let index = 0
   const query = querystring.parse(url)
   await lottery()

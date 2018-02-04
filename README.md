@@ -1,6 +1,8 @@
 # 饿了么
 
 [![GPL-3.0](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](LICENSE)
+[![Sync Gitee](https://img.shields.io/badge/sync-gitee-green.svg)](https://gitee.com/game-helper/eleme)
+[![Build Status](https://travis-ci.org/game-helper/eleme.svg?branch=master)](https://travis-ci.org/game-helper/eleme)
 
 ## 辅助
 

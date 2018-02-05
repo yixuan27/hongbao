@@ -25,8 +25,8 @@ npm run dev
 npm start
 ```
 
-生产环境更新
+生产环境不停机更新
 
 ```bash
-npm run update
+npm run reload
 ```

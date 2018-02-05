@@ -23,11 +23,12 @@ module.exports = async ({
   await lottery()
 
   async function lottery(phone) {
+    const sns = cookie[index]
     phone = phone || `138${String(Math.random() * 10).slice(-8)}`
     console.log(phone)
     // 绑定手机号
-    await request.put(`/restapi/v1/weixin/${cookie[index].openid}/phone`, {
-      sign: cookie[index].eleme_key,
+    await request.put(`/restapi/v1/weixin/${sns.openid}/phone`, {
+      sign: sns.eleme_key,
       phone
     })
 
@@ -36,14 +37,14 @@ module.exports = async ({
       data: {
         promotion_records = []
       }
-    } = await request.post(`/restapi/marketing/promotion/weixin/${cookie[index].openid}`, {
+    } = await request.post(`/restapi/marketing/promotion/weixin/${sns.openid}`, {
       device_id: '',
       group_sn: query.sn,
       hardware_id: '',
       method: 'phone',
       phone,
       platform: query.platform,
-      sign: cookie[index].eleme_key,
+      sign: sns.eleme_key,
       track_id: '',
       unionid: 'fuck',
       weixin_avatar: '',

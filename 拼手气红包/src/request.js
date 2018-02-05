@@ -2,11 +2,13 @@ const axios = require('axios')
 const querystring = require('querystring')
 const cookie = require('./cookie')
 
+const origin = 'https://h5.ele.me'
+
 const request = axios.create({
-  baseURL: `https://h5.ele.me/`,
+  baseURL: origin,
   headers: {
-    origin: 'https://h5.ele.me',
-    referer: 'https://h5.ele.me/hongbao/',
+    origin,
+    referer: `${origin}/hongbao/`,
     'user-agent': 'Mozilla/5.0 (Linux; Android 6.0; PRO 6 Build/MRA58K; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/53.0.2785.49 Mobile MQQBrowser/6.2 TBS/043221 Safari/537.36 V1_AND_SQ_7.0.0_676_YYB_D QQ/7.0.0.3135 NetType/WIFI WebP/0.3.0 Pixel/1080'
   }
 })

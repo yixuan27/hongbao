@@ -1,6 +1,6 @@
 # 拼手气红包在线服务
 
-http://eleme.gamehelper.ga/
+http://www.elemhb.top/
 
 ## 开发与部署
 

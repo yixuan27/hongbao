@@ -66,7 +66,7 @@ module.exports = async ({
       return lucky
     }
 
-    console.log(`还要领 ${number} 个红包才是最佳手气`)
+    console.log(`还要领 ${number} 个红包才是手气最佳`)
     index++
     // 如果这个是最佳红包，换成指定的手机号领取
     return await lottery(number === 1 ? mobile : null)

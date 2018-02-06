@@ -4,10 +4,7 @@ const cookie = require('./cookie')
 
 const origin = 'https://h5.ele.me'
 
-module.exports = async ({
-  mobile,
-  url
-}) => {
+module.exports = async ({mobile, url}) => {
   let index = 0
   const query = querystring.parse(url)
   const request = axios.create({
@@ -40,11 +37,7 @@ module.exports = async ({
     console.log('绑定手机号', phone)
 
     // 领红包
-    const {
-      data: {
-        promotion_records: records = []
-      }
-    } = await request.post(`/restapi/marketing/promotion/weixin/${sns.openid}`, {
+    const {data: {promotion_records = []}} = await request.post(`/restapi/marketing/promotion/weixin/${sns.openid}`, {
       device_id: '',
       group_sn: query.sn,
       hardware_id: '',
@@ -59,9 +52,9 @@ module.exports = async ({
     })
 
     // 计算剩余第几个为最佳红包
-    const number = query.lucky_number - records.length
+    const number = query.lucky_number - promotion_records.length
     if (number <= 0) {
-      const lucky = records.find(r => r.is_lucky)
+      const lucky = promotion_records.find(r => r.is_lucky)
       console.log('最佳手气红包已被领取', JSON.stringify(lucky))
       return lucky
     }

@@ -13,27 +13,33 @@ npm i
 # npm i
 ```
 
-开发环境运行
+### 开发环境
+
+运行
 
 ```bash
 npm run dev
 ```
 
-生产环境先安装 pm2
+### 生产环境
+
+安装 pm2
 
 ```bash
 npm i pm2 -g
 ```
 
-生产环境运行
+运行
 
 ```bash
 npm start
 ```
 
-生产环境更新代码后
+更新代码
 
 ```bash
 npm run reload
 ```
+
+查看日志、内存信息等，请参考 https://www.npmjs.com/package/pm2
 

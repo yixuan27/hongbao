@@ -29,7 +29,7 @@ router.post('/', async (req, res, next) => {
       mobile
     })
     res.json({
-      message: lucky.sns_username ? `最佳手气红包已被领取\n\n手机号：${lucky.sns_username}\n红包金额：${lucky.amount}` : '服务器繁忙，请稍后重试'
+      message: lucky.sns_username ? `红包已被领取\n\n最佳手气：${lucky.sns_username}\n红包金额：${lucky.amount}` : '服务器繁忙，请稍后重试'
     })
   } catch (e) {
     res.json({

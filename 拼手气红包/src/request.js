@@ -24,8 +24,6 @@ module.exports = async ({
     }]
   })
 
-  return await lottery()
-
   async function lottery(phone) {
     const sns = cookie[index]
     phone = phone || `138${String(Math.random() * 10).slice(-8)}`
@@ -68,4 +66,6 @@ module.exports = async ({
     // 如果这个是最佳红包，换成指定的手机号领取
     await lottery(number === 1 ? mobile : null)
   }
+
+  return await lottery()
 }

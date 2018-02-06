@@ -24,7 +24,7 @@ router.post('/', async (req, res, next) => {
   }
   try {
     console.log(url, mobile)
-    // 有时候领领成功了，但是没有返回 lucky，再调一次就可以了
+    // 有时候领取成功了，但是没有返回 lucky，再调一次就可以了
     const lucky = await request({url, mobile}) || await request({url, mobile})
     res.json({
       message: lucky ? `红包已被领取\n\n最佳手气：${lucky.sns_username}\n红包金额：${lucky.amount}` : '服务器繁忙 或 红包被别人抢完'

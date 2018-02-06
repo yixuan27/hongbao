@@ -24,7 +24,7 @@ module.exports = async ({
     }]
   })
 
-  return (async function lottery(phone) {
+  return (async function lottery (phone) {
     const sns = cookie[index]
     if (!sns) {
       // 如果链接错了，传给饿了么的参数不对，但 index 会不断增加，数组越界
@@ -42,7 +42,7 @@ module.exports = async ({
     // 领红包
     const {
       data: {
-        promotion_records = []
+        promotion_records: records = []
       }
     } = await request.post(`/restapi/marketing/promotion/weixin/${sns.openid}`, {
       device_id: '',
@@ -59,9 +59,9 @@ module.exports = async ({
     })
 
     // 计算剩余第几个为最佳红包
-    const number = query.lucky_number - promotion_records.length
+    const number = query.lucky_number - records.length
     if (number <= 0) {
-      const lucky = promotion_records.find(r => r.is_lucky)
+      const lucky = records.find(r => r.is_lucky)
       console.log('最佳手气红包已被领取', JSON.stringify(lucky))
       return lucky
     }
@@ -69,6 +69,6 @@ module.exports = async ({
     console.log(`还要领 ${number} 个红包才是手气最佳`)
     index++
     // 如果这个是最佳红包，换成指定的手机号领取
-    return await lottery(number === 1 ? mobile : null)
+    return lottery(number === 1 ? mobile : null)
   })()
 }

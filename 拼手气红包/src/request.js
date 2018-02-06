@@ -8,6 +8,8 @@ module.exports = async ({
   mobile,
   url
 }) => {
+  let index = 0
+  const query = querystring.parse(url)
   const request = axios.create({
     baseURL: origin,
     withCredentials: true,
@@ -22,8 +24,6 @@ module.exports = async ({
     }]
   })
 
-  let index = 0
-  const query = querystring.parse(url)
   return await lottery()
 
   async function lottery(phone) {

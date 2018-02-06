@@ -28,7 +28,7 @@ router.post('/', async (req, res, next) => {
     const lucky = await request({url, mobile}) || await request({url, mobile})
     res.json({
       message: lucky
-        ? `红包已被领取\n\n最佳手气：${lucky.sns_username}\n红包金额：${lucky.amount}`
+        ? `红包领取完毕\n\n最佳手气：${lucky.sns_username}\n红包金额：${lucky.amount}`
         : '服务器繁忙 或 红包被别人抢完'
     })
   } catch ({message}) {

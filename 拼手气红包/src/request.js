@@ -55,7 +55,7 @@ module.exports = async ({mobile, url}) => {
     const number = query.lucky_number - promotion_records.length
     if (number <= 0) {
       const lucky = promotion_records.find(r => r.is_lucky)
-      console.log('最佳手气红包已被领取', JSON.stringify(lucky))
+      console.log('手气最佳红包已被领取', JSON.stringify(lucky))
       return lucky
     }
 

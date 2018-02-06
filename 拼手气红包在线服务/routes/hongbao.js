@@ -23,12 +23,13 @@ router.post('/', async (req, res, next) => {
     })
   }
   try {
-    await request({
+    console.log(url)
+    const lucky = await request({
       url,
       mobile
     })
     res.json({
-      message: '领取完毕，打开饿了么 APP 查看红包是否到账'
+      message: `最佳手气红包已被领取\n\n手机号：${lucky.sns_username}\n红包金额：${lucky.amount}`
     })
   } catch (e) {
     res.json({

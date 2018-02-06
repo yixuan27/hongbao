@@ -19,6 +19,12 @@ npm i
 npm run dev
 ```
 
+生产环境先安装 pm2
+
+```bash
+npm i pm2 -g
+```
+
 生产环境运行
 
 ```bash
@@ -31,22 +37,3 @@ npm start
 npm run reload
 ```
 
-nginx 部分配置
-
-```nginx
-server {
-  listen 80;
-  server_name eleme.gamehelper.ga www.elemhb.top elemhb.top;
-  root /www/wwwroot/eleme.gamehelper.ga;
-
-  if ($host ~ '^eleme.gamehelper.ga') {
-    return 301 http://www.elemhb.top$request_uri;
-  }
-
-  location / {
-    proxy_pass http://127.0.0.1:3007;
-  }
-
-  access_log /www/wwwlogs/eleme.gamehelper.ga.log;
-}
-```

@@ -1,6 +1,5 @@
 {
   "scripts": {
-    "postinstall": "npm i -g pm2",
     "dev": "open http://127.0.0.1:3007 && node ./bin/www",
     "start": "pm2 start ./bin/www --name eleme-hongbao --instances 2",
     "reload": "pm2 reload eleme-hongbao"

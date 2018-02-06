@@ -1,6 +1,6 @@
-var express = require('express')
-var router = express.Router()
-var request = require('../../拼手气红包/src/request')
+const express = require('express')
+const router = express.Router()
+const request = require('../../拼手气红包/src/request')
 
 router.post('/', async (req, res, next) => {
   const {

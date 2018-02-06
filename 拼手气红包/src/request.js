@@ -28,7 +28,7 @@ module.exports = async ({
     const sns = cookie[index]
     if (!sns) {
       // 如果链接错了，传给饿了么的参数不对，但 index 会不断增加，数组越界
-      throw new Error('饿了么红包链接不合法')
+      throw new Error('饿了么红包链接不合法 或 请求饿了么服务器失败')
     }
 
     phone = phone || `138${String(Math.random() * 10).slice(-8)}`

@@ -91,6 +91,7 @@ function response (options) {
     try {
       resolve({message: await request(options)})
     } catch (e) {
+      console.error(e)
       resolve({
         message: e.message,
         status: (e.response || {}).status
@@ -104,6 +105,10 @@ module.exports = async options => {
   // 400 重试一次
   if (res.status === 400) {
     res = await response(options)
+    // 仍然 400
+    if (res.status === 400) {
+      res.message = '今日领取红包个数达到上限 或 服务器繁忙'
+    }
   }
   return res
 }

@@ -25,9 +25,9 @@ router.post('/', async (req, res, next) => {
         ? `红包领取完毕\n\n最佳手气：${lucky.sns_username}\n红包金额：${lucky.amount}`
         : '服务器繁忙 或 红包被别人抢完'
     })
-  } catch ({message}) {
-    console.error(message)
-    res.json({message})
+  } catch (err) {
+    console.error(err)
+    res.json({message: err.message})
   }
 })
 

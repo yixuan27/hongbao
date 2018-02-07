@@ -75,7 +75,7 @@ async function request ({mobile, url} = {}) {
       console.log('手气最佳红包已被领取', JSON.stringify(lucky))
       return lucky
         ? `红包领取完毕\n\n手气最佳：${lucky.sns_username}\n红包金额：${lucky.amount} 元`
-        : '服务器繁忙 或 红包被别人抢完'
+        : '红包被人抢完\n或\n服务器繁忙'
     }
 
     console.log(`还要领 ${number} 个红包才是手气最佳`)
@@ -91,7 +91,7 @@ function response (options) {
     try {
       resolve({message: await request(options)})
     } catch (e) {
-      console.error(e)
+      console.error(e.message)
       resolve({
         message: e.message,
         status: (e.response || {}).status
@@ -107,7 +107,7 @@ module.exports = async options => {
     res = await response(options)
     // 仍然 400
     if (res.status === 400) {
-      res.message = '今日领取红包个数达到上限 或 服务器繁忙'
+      res.message = '今日领取红包个数达到上限\n或\n服务器繁忙'
     }
   }
   return res

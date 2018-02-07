@@ -35,12 +35,12 @@ async function request ({mobile, url} = {}) {
   return (async function lottery (phone) {
     const sns = cookie[index]
 
-    if (!query.sn
-      || !query.lucky_number
-      || isNaN(query.lucky_number)
-      || url.indexOf(`${origin}/hongbao/`) !== 0
-      || !sns) {
-      throw new Error('饿了么红包链接不正确 或 请求饿了么服务器失败')
+    if (!query.sn ||
+      !query.lucky_number ||
+      isNaN(query.lucky_number) ||
+      url.indexOf(`${origin}/hongbao/`) !== 0 ||
+      !sns) {
+      throw new Error('饿了么红包链接不正确\n或\n请求饿了么服务器失败')
     }
 
     phone = phone || `138${String(Math.random() * 10).slice(-8)}`
@@ -52,6 +52,7 @@ async function request ({mobile, url} = {}) {
     console.log('绑定手机号', phone)
 
     // 领红包
+    /* eslint camelcase: 0 */
     const {data: {promotion_records = []}} = await request.post(`/restapi/marketing/promotion/weixin/${sns.openid}`, {
       device_id: '',
       group_sn: query.sn,
@@ -61,7 +62,7 @@ async function request ({mobile, url} = {}) {
       platform: query.platform,
       sign: sns.eleme_key,
       track_id: '',
-      unionid: 'fuck',
+      unionid: 'fuck', // 别问为什么传 fuck，饿了么前端就是这么传的
       weixin_avatar: '',
       weixin_username: ''
     })

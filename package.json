@@ -1,7 +1,7 @@
 {
   "scripts": {
     "dev": "open http://127.0.0.1:3007 && cross-env DEBUG=* nodemon ./bin/www",
-    "prod": "pm2 start ./bin/www --name eleme-hongbao --instances 2",
+    "prod": "pm2 start ./bin/www --name eleme-hongbao --instances 4",
     "update": "pm2 reload eleme-hongbao"
   },
   "dependencies": {

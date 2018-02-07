@@ -7,13 +7,11 @@
 
 一键领取饿了么手气最佳红包 http://www.elemhb.top/
 
-> 请勿提前用手机打开分享的红包链接，因为进页面就领了红包，不能再领手气最佳了
-
 ## 开发与部署
 
-建议环境：Node.js 9.x 以上
+建议安装 Node.js 9.x 以上
 
-安装依赖
+安装项目依赖
 
 ```bash
 npm i
@@ -47,7 +45,7 @@ npm run prod
 npm run update
 ```
 
-更多功能请参考 https://www.npmjs.com/package/pm2
+查看日志、内存等更多功能请参考 https://www.npmjs.com/package/pm2
 
 ## 捐赠
 

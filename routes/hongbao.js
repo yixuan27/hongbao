@@ -1,25 +1,19 @@
 const express = require('express')
 const router = express.Router()
-const request = require('../../拼手气红包/src/request')
+const request = require('../services/request')
 
 router.post('/', async (req, res, next) => {
   const {url, mobile} = req.body
   if (!url || !mobile) {
-    return res.json({
-      message: '请将信息填写完整'
-    })
+    return res.json({message: '请将信息填写完整'})
   }
 
   if (!/^1\d{10}$/.test(mobile)) {
-    return res.json({
-      message: '请填写 11 位手机号码'
-    })
+    return res.json({message: '请填写 11 位手机号码'})
   }
 
   if (url.indexOf('https://h5.ele.me/hongbao/') === -1) {
-    return res.json({
-      message: '请填写正确的饿了么红包链接'
-    })
+    return res.json({message: '请填写正确的饿了么红包链接'})
   }
 
   try {
@@ -32,6 +26,7 @@ router.post('/', async (req, res, next) => {
         : '服务器繁忙 或 红包被别人抢完'
     })
   } catch ({message}) {
+    console.error(message)
     res.json({message})
   }
 })

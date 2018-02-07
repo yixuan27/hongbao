@@ -9,17 +9,40 @@
   <link rel="shortcut icon" href="/icon.png">
   <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <style>
+    html,
     body {
-      padding: 15px;
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .panel {
-      margin: 0 auto;
-      max-width: 375px;
+      width: 480px;
     }
 
     .breadcrumb {
       margin-bottom: 0;
+    }
+
+    #submit {
+      width: 100%;
+    }
+
+    @media screen and (max-width: 480px) {
+      body {
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+
+      .panel {
+        width: 100%;
+        border: 0;
+        box-shadow: none;
+      }
     }
   </style>
 </head>
@@ -37,17 +60,16 @@
         <input type="text" class="form-control" id="url" placeholder="https://h5.ele.me/hongbao/开头的链接">
       </div>
       <div class="form-group">
-        <button type="button" class="btn btn-primary" id="submit">马上领取</button>
+        <button type="button" class="btn btn-danger" id="submit">马上领取</button>
       </div>
       <div>
-        <pre>如何获取拼手气红包？<br>1. 好友下单后，分享到群里的红包<br>2. 饿了么 APP 买过的订单点进去，分享红包</pre>
-        <pre>如何复制红包链接？<br>1. 分享到 QQ，选择 “我的电脑”，PC QQ 复制</br>2. 分享到微信，在微信 PC 版右键用浏览器打开</pre>
+        <pre><b>如何获取拼手气红包？</b><br>好友下单后，分享到群里的红包<br>饿了么 APP 买过的订单点进去，分享红包</pre>
+        <pre><b>如何复制红包链接？</b><br>分享到 QQ，选择 “我的电脑”，PC QQ 复制</br>分享到微信，在微信 PC 版右键用浏览器打开</pre>
       </div>
-      <div class="breadcrumb">
-        <li><a href="https://github.com/game-helper/eleme" target="_blank">查看源码</a></li>
+      <ul class="breadcrumb">
         <li><a href="https://github.com/game-helper/eleme/issues/new" target="_blank">反馈问题</a></li>
-        <li><a href="https://github.com/game-helper/donate" target="_blank">捐赠我们</a></li>
-      </div>
+        <li><a href="https://github.com/game-helper/donate" target="_blank">捐赠支持服务器开支 🎉</a></li>
+      </ul>
     </div>
   </div>
 

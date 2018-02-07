@@ -74,7 +74,7 @@ async function request ({mobile, url} = {}) {
       const lucky = promotion_records.find(r => r.is_lucky) || await lottery(phone)
       console.log('手气最佳红包已被领取', JSON.stringify(lucky))
       return lucky
-        ? `红包领取完毕\n\n最佳手气：${lucky.sns_username}\n红包金额：${lucky.amount}`
+        ? `红包领取完毕\n\n手气最佳：${lucky.sns_username}\n红包金额：${lucky.amount} 元`
         : '服务器繁忙 或 红包被别人抢完'
     }
 

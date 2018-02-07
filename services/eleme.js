@@ -4,9 +4,20 @@ const cookie = require('./cookie')
 
 const origin = 'https://h5.ele.me'
 
-module.exports = async ({mobile, url}) => {
+async function request ({mobile, url} = {}) {
+  console.log('请求', [url, mobile])
+
+  if (!url || !mobile) {
+    throw new Error('请将信息填写完整')
+  }
+
+  if (!/^1\d{10}$/.test(mobile)) {
+    throw new Error('请填写 11 位手机号码')
+  }
+
   let index = 0
   const query = querystring.parse(url)
+
   const request = axios.create({
     baseURL: origin,
     withCredentials: true,
@@ -23,9 +34,13 @@ module.exports = async ({mobile, url}) => {
 
   return (async function lottery (phone) {
     const sns = cookie[index]
-    if (!sns) {
-      // 如果链接错了，传给饿了么的参数不对，但 index 会不断增加，数组越界
-      throw new Error('饿了么红包链接不合法 或 请求饿了么服务器失败')
+
+    if (!query.sn
+      || !query.lucky_number
+      || isNaN(query.lucky_number)
+      || url.indexOf(`${origin}/hongbao/`) !== 0
+      || !sns) {
+      throw new Error('饿了么红包链接不正确 或 请求饿了么服务器失败')
     }
 
     phone = phone || `138${String(Math.random() * 10).slice(-8)}`
@@ -53,15 +68,42 @@ module.exports = async ({mobile, url}) => {
 
     // 计算剩余第几个为最佳红包
     const number = query.lucky_number - promotion_records.length
+
     if (number <= 0) {
-      const lucky = promotion_records.find(r => r.is_lucky)
+      // 有时候领取成功了，但是没有返回 lucky，再调一次就可以了
+      const lucky = promotion_records.find(r => r.is_lucky) || await lottery(phone)
       console.log('手气最佳红包已被领取', JSON.stringify(lucky))
       return lucky
+        ? `红包领取完毕\n\n最佳手气：${lucky.sns_username}\n红包金额：${lucky.amount}`
+        : '服务器繁忙 或 红包被别人抢完'
     }
 
     console.log(`还要领 ${number} 个红包才是手气最佳`)
     index++
+
     // 如果这个是最佳红包，换成指定的手机号领取
     return lottery(number === 1 ? mobile : null)
   })()
+}
+
+function response (options) {
+  return new Promise(async resolve => {
+    try {
+      resolve({message: await request(options)})
+    } catch (e) {
+      resolve({
+        message: e.message,
+        status: (e.response || {}).status
+      })
+    }
+  })
+}
+
+module.exports = async options => {
+  let res = await response(options)
+  // 400 重试一次
+  if (res.status === 400) {
+    res = await response(options)
+  }
+  return res
 }

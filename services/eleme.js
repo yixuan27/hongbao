@@ -91,7 +91,10 @@ function response (options) {
     try {
       resolve({message: await request(options)})
     } catch (e) {
-      resolve(e)
+      resolve({
+        message: e.message,
+        status: (e.response || {}).status
+      })
     }
   })
 }
@@ -99,7 +102,7 @@ function response (options) {
 module.exports = async options => {
   let res = await response(options)
   // 400 重试一次
-  if ((res.response || {}).status === 400) {
+  if (res.status === 400) {
     res = await response(options)
   }
   return res

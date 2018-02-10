@@ -15,6 +15,5 @@ app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/hongbao', hongbao)
-app.use(({message}, req, res, next) => res.json({message}))
 
 module.exports = app

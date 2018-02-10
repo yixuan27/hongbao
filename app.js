@@ -4,8 +4,7 @@ const logger = require('morgan')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 
-const index = require('./routes/index')
-const hongbao = require('./routes/hongbao')
+const hongbao = require('./route/hongbao')
 
 const app = express()
 
@@ -15,7 +14,6 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.use('/', index)
 app.use('/hongbao', hongbao)
 app.use(({message}, req, res, next) => res.json({message}))
 

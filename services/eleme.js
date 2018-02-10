@@ -52,7 +52,7 @@ async function request ({mobile, url} = {}) {
     console.log('绑定手机号', phone)
 
     // 领红包
-    /* eslint camelcase: 0 */
+    // eslint-disable-next-line camelcase
     const {data: {promotion_records = []}} = await request.post(`/restapi/marketing/promotion/weixin/${sns.openid}`, {
       device_id: '',
       group_sn: query.sn,

@@ -100,7 +100,7 @@
     $('#submit').on('click', function (e) {
       var $submit = $(this)
       $submit.text('正在领取...').prop('disabled', true)
-      $.post('/hongbao', {
+      $.post('http://101.132.113.122:3007/hongbao', {
           url: $.trim($('#url').val()),
           mobile: $.trim($('#mobile').val())
         })

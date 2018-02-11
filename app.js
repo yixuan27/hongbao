@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 
 const hongbao = require('./route/hongbao')
+const publish = require('./route/publish')
 
 const app = express()
 
@@ -21,5 +22,6 @@ app.all('*', (req, res, next) => {
   next()
 })
 app.use('/hongbao', hongbao)
+app.use('/publish', publish)
 
 module.exports = app

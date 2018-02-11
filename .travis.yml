@@ -12,6 +12,8 @@ script:
     git config user.name 'Travis CI';
     git config user.email 'i@zhuweiyou.com';
     git push https://${GITEE_TOKEN}@gitee.com/game-helper/eleme.git master -f;
+
+    npm run publish;
     fi
 
 branches:

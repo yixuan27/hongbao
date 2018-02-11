@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "preinstall": "npm i -g pm2",
     "dev": "cross-env DEBUG=* nodemon ./bin/www",
     "publish": "gulp --gulpfile publish.js",
     "start": "pm2 start ./bin/www --name eleme-hongbao --instances 4",

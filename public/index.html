@@ -32,6 +32,10 @@
       width: 100%;
     }
 
+    #wx-group-img {
+      width: 100%;
+    }
+
     @media screen and (max-width: 480px) {
       body {
         align-items: flex-start;
@@ -69,7 +73,7 @@
       </div>
       <ul class="breadcrumb">
         <li>
-          <a href="https://tongji.baidu.com/web/welcome/ico?s=ec94314b337fdff17cf09e9040847912" target="_blank">网站统计</a>
+          <a href="javascript:;" data-toggle="modal" data-target="#wx-group-modal">饿了么红包分享群</a>        
         </li>
         <li>
           <a href="https://github.com/game-helper/eleme/issues/new" target="_blank">反馈问题</a>
@@ -78,6 +82,19 @@
           <a href="https://github.com/game-helper/donate" target="_blank">捐赠我们</a>
         </li>
       </ul>
+    </div>
+  </div>
+  <div class="modal fade" id="wx-group-modal" tabindex="-1" role="dialog" aria-labelledby="wx-group-modal-label">
+    <div class="modal-dialog modal-sm" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="wx-group-modal-label">微信-饿了么红包分享群</h4>
+        </div>
+        <div class="modal-body">
+          <img id="wx-group-img" src="wx-group.png" alt="微信-饿了么红包分享群">
+        </div>
+      </div>
     </div>
   </div>
 

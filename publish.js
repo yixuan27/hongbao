@@ -13,7 +13,7 @@ gulp.task('server', async () => {
   console.log(data)
 })
 
-gulp.task('client', ['server'], () => gulp.src('public/**/*').pipe(ossSync({
+gulp.task('client', () => gulp.src('public/**/*').pipe(ossSync({
   connect: {
     region: 'oss-cn-hongkong',
     accessKeyId: process.env.ALIOSS_ACCESS_KEY,
@@ -33,4 +33,4 @@ gulp.task('client', ['server'], () => gulp.src('public/**/*').pipe(ossSync({
   }
 })))
 
-gulp.task('default', ['client'])
+gulp.task('default', ['server', 'client'])

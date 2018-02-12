@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-git fetch --all
+git fetch origin master
 git reset --hard origin/master
 npm i
 npm run reload

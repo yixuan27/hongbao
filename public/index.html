@@ -9,19 +9,9 @@
   <link rel="shortcut icon" href="/icon.png">
   <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    html,
-    body {
-      height: 100%;
-    }
-
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
     .panel {
       width: 375px;
+      margin: 15px auto;
     }
 
     .breadcrumb {
@@ -32,18 +22,22 @@
       width: 100%;
     }
 
-    #wx-group-img {
+    #wx-group-img,
+    #track {
       width: 100%;
     }
 
-    @media screen and (max-width: 480px) {
-      body {
-        align-items: flex-start;
-        justify-content: flex-start;
-      }
+    #track {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
 
+
+    @media screen and (max-width: 480px) {
       .panel {
         width: 100%;
+        margin: 0;
         border: 0;
         box-shadow: none;
       }
@@ -70,7 +64,8 @@
       <div>
         <pre><b>如何获取拼手气红包？</b><br>好友下单后，分享到群里的红包<br>饿了么 APP 买过的订单点进去，分享红包</pre>
         <pre><b>如何复制红包链接？</b><br>分享到 QQ，选择 “我的电脑”，PC 版 QQ 复制链接<br>分享到微信，PC 版微信右键用浏览器打开，复制链接</pre>
-        <pre>春节暂停更新，祝大家狗年大吉吧</pre>
+        <pre>春节暂停更新，祝大家狗年大吉吧<br>截止到 2018年02月12日10点，百度统计数据如下</pre>
+        <a href="/track.png" target="_blank"><img id="track" src="/track.png" alt=""></a>
       </div>
       <ul class="breadcrumb">
         <li>
@@ -93,7 +88,7 @@
           <h4 class="modal-title" id="wx-group-modal-label">微信-饿了么红包分享群</h4>
         </div>
         <div class="modal-body">
-          <img id="wx-group-img" src="wx-group.png" alt="微信-饿了么红包分享群">
+          <img id="wx-group-img" src="/wx-group.png" alt="微信-饿了么红包分享群">
         </div>
       </div>
     </div>

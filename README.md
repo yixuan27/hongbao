@@ -41,7 +41,8 @@ npm run reload
 
 <details>
   <summary>（非必须）本站使用 Travis CI，当代码 push 到 master 时自动更新网站</summary>
-
+  <br>
+  
   客户端上传到阿里云 OSS，服务端通过 POST /publish 触发更新
   
   需提前在开发机、CI、服务器上设置以下环境变量
@@ -50,6 +51,12 @@ npm run reload
   ELEME_PUBLISH_KEY = 部署密钥 可以是任意的约定值 防止他人刷接口频繁部署
   ALIOSS_ACCESS_KEY_ID = 阿里云 OSS ID
   ALIOSS_ACCESS_KEY_SECRET = 阿里云 OSS SECRET
+  ```
+  
+  给脚本权限
+  
+  ```bash
+  chmod 777 publish.sh
   ```
 </details>
 

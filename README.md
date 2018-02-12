@@ -19,21 +19,19 @@
 npm i
 ```
 
-### 开发环境
+开发环境运行
 
 ```bash
 npm run dev
 ```
 
-### 生产环境
-
-首次运行
+生产环境首次运行
 
 ```bash
 npm start
 ```
 
-代码更新
+生产环境代码更新
 
 ```bash
 npm run reload

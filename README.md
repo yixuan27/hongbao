@@ -37,9 +37,11 @@ npm start
 npm run reload
 ```
 
-查看日志、内存等更多信息，请参考 https://www.npmjs.com/package/pm2
+> 查看日志、内存等更多信息，请参考 https://www.npmjs.com/package/pm2
 
-本站使用 Travis 自动部署，客户端上传到阿里云 OSS，服务端通过 POST /publish 触发部署
+本站使用 Travis CI（非必须），当代码 push 到 master 时自动更新网站
+
+客户端上传到阿里云 OSS（非必须），服务端通过 POST /publish 触发更新
 
 需提前在开发机、CI、服务器上设置以下环境变量
 

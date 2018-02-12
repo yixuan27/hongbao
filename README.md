@@ -39,6 +39,16 @@ npm run reload
 
 查看日志、内存等更多信息，请参考 https://www.npmjs.com/package/pm2
 
+本站使用 Travis 自动部署，客户端上传到阿里云 OSS，服务端通过 POST /publish 触发部署
+
+需提前在开发机、CI、服务器上设置以下环境变量
+
+```bash
+ELEME_PUBLISH_KEY = 部署密钥 可以是任意的约定值 防止他人刷接口频繁部署
+ALIOSS_ACCESS_KEY_ID = 阿里云 OSS ID
+ALIOSS_ACCESS_KEY_SECRET = 阿里云 OSS SECRET
+```
+
 ## 捐赠
 
 [如果我们的项目对您有帮助，欢迎捐赠](https://github.com/game-helper/donate)

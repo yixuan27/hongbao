@@ -51,12 +51,6 @@ npm run reload
   ALIOSS_ACCESS_KEY_ID = 阿里云 OSS ID
   ALIOSS_ACCESS_KEY_SECRET = 阿里云 OSS SECRET
   ```
-  
-  给部署脚本权限
-  
-  ```bash
-  chmod 777 publish.sh
-  ```
 </details>
 
 ## 捐赠

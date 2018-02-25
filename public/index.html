@@ -9,6 +9,10 @@
   <link rel="shortcut icon" href="/icon.png">
   <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <style>
+    body {
+      min-width: 375px;
+    }
+
     .panel {
       width: 375px;
       margin: 15px auto;
@@ -48,7 +52,7 @@
     <div class="panel-body">
       <div class="form-group">
         <label for="mobile">要领取最佳红包的手机号码</label>
-        <input type="mobile" class="form-control" id="mobile" placeholder="11位手机号码">
+        <input type="mobile" class="form-control" id="mobile" placeholder="11位手机号码" maxlength="11">
       </div>
       <div class="form-group">
         <label for="url">饿了么分享出来的红包链接</label>
@@ -79,10 +83,10 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">微信-饿了么红包分享群</h4>
+          <h4 class="modal-title">微信 - 饿了么红包分享群</h4>
         </div>
         <div class="modal-body">
-          <img src="/wx-group-20170301.png" alt="微信-饿了么红包分享群">
+          <img src="/wx-group-20170301.png" alt="微信 - 饿了么红包分享群">
         </div>
       </div>
     </div>
@@ -115,18 +119,19 @@
         })
         .done(function (res) {
           alert(res.message)
-          localStorage.setItem('mobile', $('#mobile').val())
         })
         .fail(function (err) {
           alert('服务器繁忙，请稍后重试')
         })
+      localStorage.setItem('mobile', $('#mobile').val())
     })
+
+    $('#mobile').val($.trim(localStorage.getItem('mobile')))
 
     $('.breadcrumb a').on('click', function (e) {
       _hmt.push(['_trackEvent', $(this).text(), 'click'])
     })
 
-    $('#mobile').val($.trim(localStorage.getItem('mobile')))
   </script>
 </body>
 

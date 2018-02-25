@@ -3,7 +3,6 @@
 [![GPL-3.0](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](LICENSE)
 [![Sync Gitee](https://img.shields.io/badge/sync-gitee-green.svg)](https://gitee.com/game-helper/eleme)
 [![Build Status](https://travis-ci.org/game-helper/eleme.svg?branch=master)](https://travis-ci.org/game-helper/eleme)
-[![QQ Group](https://img.shields.io/badge/qq%20group-246080018-orange.svg)]()
 
 一键领取饿了么手气最佳红包 http://www.elemhb.top/
 

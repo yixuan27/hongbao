@@ -115,6 +115,7 @@
         })
         .done(function (res) {
           alert(res.message)
+          localStorage.setItem('mobile', $('#mobile').val())
         })
         .fail(function (err) {
           alert('服务器繁忙，请稍后重试')
@@ -125,6 +126,7 @@
       _hmt.push(['_trackEvent', $(this).text(), 'click'])
     })
 
+    $('#mobile').val($.trim(localStorage.getItem('mobile')))
   </script>
 </body>
 

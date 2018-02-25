@@ -3,11 +3,25 @@
 [![GPL-3.0](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](LICENSE)
 [![Sync Gitee](https://img.shields.io/badge/sync-gitee-green.svg)](https://gitee.com/game-helper/eleme)
 [![Build Status](https://travis-ci.org/game-helper/eleme.svg?branch=master)](https://travis-ci.org/game-helper/eleme)
-[![QQ Group](https://img.shields.io/badge/qq%20group-246080018-orange.svg)](https://shang.qq.com/wpa/qunwpa?idkey=ce7ff4d1b5050c3bafff8f16c3cae4b1eec37916053865b86527347d680e03ec)
+[![QQ Group](https://img.shields.io/badge/qq%20group-246080018-orange.svg)]()
 
 一键领取饿了么手气最佳红包 http://www.elemhb.top/
 
 > 仅供学习交流之用，请勿用于非法用途，否则产生的一切后果自行承担
+
+## 交流群
+
+<table>
+  <tr>
+    <th width="150">微信群</th>
+    <th width="150">QQ 群</th>
+  </tr>
+  <tr></tr>
+  <tr>
+    <td align="center"><img src="public/wx-group-20170301.png"></td>
+    <td align="center"><a href="https://shang.qq.com/wpa/qunwpa?idkey=ce7ff4d1b5050c3bafff8f16c3cae4b1eec37916053865b86527347d680e03ec">246080018</a></td>
+  </tr>
+</table>
 
 ## 开发与部署
 

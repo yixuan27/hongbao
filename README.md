@@ -18,7 +18,7 @@
   <tr></tr>
   <tr>
     <td align="center" width="300">
-      <img src="public/wx.png"><p>加群的人太多<br>请加上面的微信号邀请你入群</p>
+      <img src="public/wx.png"><p>请加上面的微信号邀请你入群</p>
     </td>
     <td align="center" width="300"><a href="https://shang.qq.com/wpa/qunwpa?idkey=ce7ff4d1b5050c3bafff8f16c3cae4b1eec37916053865b86527347d680e03ec">246080018</a></td>
   </tr>

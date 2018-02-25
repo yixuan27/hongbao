@@ -13,13 +13,13 @@
 
 <table>
   <tr>
-    <th width="150">微信群</th>
-    <th width="150">QQ 群</th>
+    <th>微信群</th>
+    <th>QQ 群</th>
   </tr>
   <tr></tr>
   <tr>
-    <td align="center"><img src="public/wx-group-20170301.png"></td>
-    <td align="center"><a href="https://shang.qq.com/wpa/qunwpa?idkey=ce7ff4d1b5050c3bafff8f16c3cae4b1eec37916053865b86527347d680e03ec">246080018</a></td>
+    <td align="center" width="300"><img src="public/wx-group-20170301.png"></td>
+    <td align="center" width="300"><a href="https://shang.qq.com/wpa/qunwpa?idkey=ce7ff4d1b5050c3bafff8f16c3cae4b1eec37916053865b86527347d680e03ec">246080018</a></td>
   </tr>
 </table>
 

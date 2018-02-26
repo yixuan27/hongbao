@@ -2,6 +2,7 @@ const axios = require('axios')
 const querystring = require('querystring')
 const cookie = require('./cookie')
 const redirect = require('./redirect')
+const randomPhone = require('./phone')
 
 const origin = 'https://h5.ele.me'
 
@@ -48,7 +49,7 @@ async function request ({mobile, url} = {}) {
       throw new Error('饿了么红包链接不正确\n或\n请求饿了么服务器失败')
     }
 
-    phone = phone || `138${String(Math.random() * 10).slice(-8)}`
+    phone = phone || randomPhone(mobile)
     // 绑定手机号
     await request.put(`/restapi/v1/weixin/${sns.openid}/phone`, {
       sign: sns.eleme_key,

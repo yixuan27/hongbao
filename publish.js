@@ -7,9 +7,7 @@ gulp.task('server', async () => {
   const {data: {message}} = await axios({
     method: 'POST',
     url: 'http://101.132.113.122:3007/publish',
-    data: JSON.stringify({
-      key: process.env.ELEME_PUBLISH_KEY
-    })
+    data: process.env.ELEME_PUBLISH_KEY
   })
   console.log(message)
 })

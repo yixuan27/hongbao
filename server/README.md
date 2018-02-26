@@ -28,3 +28,5 @@ npm start
 ```bash
 npm run reload
 ```
+
+> 查看日志、内存等更多信息，请参考 https://www.npmjs.com/package/pm2

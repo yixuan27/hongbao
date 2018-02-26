@@ -1,26 +1,11 @@
 const axios = require('axios')
 const querystring = require('querystring')
 const cookie = require('./cookie')
-const redirect = require('./redirect')
-const randomPhone = require('./phone')
+const randomPhone = require('../../common/phone')
 
 const origin = 'https://h5.ele.me'
 
 async function request ({mobile, url} = {}) {
-  console.log('请求', [url, mobile])
-
-  if (!url || !mobile) {
-    throw new Error('请将信息填写完整')
-  }
-
-  if (!/^1\d{10}$/.test(mobile)) {
-    throw new Error('请填写 11 位手机号码')
-  }
-
-  // 短链接处理
-  if (/^https?:\/\/url\.cn\//i.test(url)) {
-    url = await redirect(url)
-  }
   const query = querystring.parse(url)
 
   let index = 0
@@ -44,7 +29,6 @@ async function request ({mobile, url} = {}) {
     if (!query.sn ||
       !query.lucky_number ||
       isNaN(query.lucky_number) ||
-      url.indexOf(`${origin}/hongbao/`) !== 0 ||
       !sns) {
       throw new Error('饿了么红包链接不正确\n或\n请求饿了么服务器失败')
     }

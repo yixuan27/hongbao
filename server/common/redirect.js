@@ -5,6 +5,6 @@ module.exports = async url => {
     const res = await axios(url)
     return res.request.res.responseUrl
   } catch (e) {
-    throw new Error('饿了么红包链接不正确')
+    throw new Error('红包链接不正确')
   }
 }

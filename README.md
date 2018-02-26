@@ -1,10 +1,10 @@
-# eleme
+# hongbao
 
 [![GPL-3.0](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](LICENSE)
-[![Sync Gitee](https://img.shields.io/badge/sync-gitee-green.svg)](https://gitee.com/game-helper/eleme)
-[![Build Status](https://travis-ci.org/game-helper/eleme.svg?branch=master)](https://travis-ci.org/game-helper/eleme)
+[![Sync Gitee](https://img.shields.io/badge/sync-gitee-green.svg)](https://gitee.com/game-helper/hongbao)
+[![Build Status](https://travis-ci.org/game-helper/hongbao.svg?branch=master)](https://travis-ci.org/game-helper/hongbao)
 
-一键领取饿了么手气最佳红包 http://www.elemhb.top/
+一键领取饿了么、美团手气最佳红包 http://www.elemhb.top/
 
 > 仅供学习交流之用，请勿用于非法用途，否则产生的一切后果自行承担
 
@@ -31,6 +31,7 @@
 安装依赖
 
 ```bash
+cd server
 npm i
 ```
 

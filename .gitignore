@@ -3,3 +3,4 @@
 node_modules
 .DS_Store
 .oss-cache-elmhb
+package-lock.json

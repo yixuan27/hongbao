@@ -1,22 +1,10 @@
 {
   "scripts": {
-    "dev": "cross-env DEBUG=* nodemon ./bin/www",
-    "publish": "gulp --gulpfile publish.js",
-    "start": "pm2 start ./bin/www --name eleme-hongbao --instances 4",
-    "reload": "pm2 reload eleme-hongbao"
+    "publish": "gulp --gulpfile publish.js"
   },
   "dependencies": {
-    "axios": "^0.17.1",
-    "body-parser": "~1.18.2",
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.9",
-    "express": "~4.15.5",
-    "morgan": "~1.9.0"
-  },
-  "devDependencies": {
-    "cross-env": "^5.1.3",
+    "axios": "^0.18.0",
     "gulp": "^3.9.1",
-    "gulp-oss-sync": "^1.0.4",
-    "nodemon": "^1.14.12"
+    "gulp-oss-sync": "^1.0.4"
   }
 }

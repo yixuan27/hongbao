@@ -43,6 +43,7 @@ npm run dev
 生产环境首次运行
 
 ```bash
+npm i -g pm2
 npm start
 ```
 

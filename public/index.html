@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <title>饿了么 · 一键领取手气最佳红包</title>
+  <title>一键领取手气最佳红包(饿了么、美团）</title>
   <link rel="shortcut icon" href="/icon.png">
   <link href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <style>
@@ -53,22 +53,23 @@
 
 <body>
   <div class="panel panel-default">
-    <div class="panel-heading">饿了么 · 一键领取手气最佳红包</div>
+    <div class="panel-heading">一键领取手气最佳红包（饿了么、美团*测试版）</div>
     <div class="panel-body">
       <div class="form-group">
         <label for="mobile">要领取最佳红包的手机号码</label>
         <input type="mobile" class="form-control" id="mobile" placeholder="11位手机号码" maxlength="11">
       </div>
       <div class="form-group">
-        <label for="url">饿了么分享出来的红包链接</label>
-        <input type="text" class="form-control" id="url" placeholder="https://h5.ele.me/hongbao/开头的链接">
+        <label for="url">饿了么、美团分享出来的红包链接</label>
+        <input type="text" class="form-control" id="url" placeholder="红包完整 URL 链接">
+        <p><br>饿了么：https://h5.ele.me/hongbao/开头的链接<br>美团：https://activity.waimai.meituan.com/开头的链接</p>
       </div>
       <div class="form-group">
         <button type="button" class="btn btn-danger" id="submit">马上领取</button>
       </div>
       <ul class="breadcrumb">
         <li>
-          <a href="javascript:;" data-toggle="modal" data-target="#wx-group-modal">饿了么红包分享群</a>
+          <a href="javascript:;" data-toggle="modal" data-target="#wx-group-modal">红包分享交流群</a>
         </li>
         <li>
           <a href="https://github.com/game-helper/eleme/issues/new" target="_blank">反馈问题</a>
@@ -78,8 +79,7 @@
         </li>
       </ul>
       <div>
-        <pre><a href="https://github.com/game-helper/meituan" target="_blank">美团版辅助已开源，欢迎 star 和交流</a></pre>
-        <pre><b>如何获取拼手气红包？</b><br>好友下单后，分享到群里的红包<br>饿了么 APP 买过的订单点进去，分享红包</pre>
+        <pre><b>如何获取拼手气红包？</b><br>好友下单后，分享到群里的红包<br>饿了么、美团 APP 买过的订单点进去，分享红包</pre>
         <pre><b>如何复制红包链接？</b><br>分享到 QQ，选择 “我的电脑”，PC 版 QQ 复制链接<br>分享到微信，PC 版微信右键用浏览器打开，复制链接<br>长按微信分享的卡片，点击更多，发送邮件，复制链接</pre>
       </div>
     </div>
@@ -89,10 +89,10 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title">微信-饿了么红包分享群</h4>
+          <h4 class="modal-title">微信-红包分享交流群</h4>
         </div>
         <div class="modal-body">
-          <img src="/wx.png" alt="微信-饿了么红包分享群">
+          <img src="/wx.png" alt="微信-红包分享交流群">
           <p class="text-center">请加上面的微信号邀请你入群</p>
         </div>
       </div>
@@ -117,10 +117,12 @@
     $('#submit').on('click', function (e) {
       var $submit = $(this)
       $submit.text('正在领取...').prop('disabled', true)
-      $.post((location.host.indexOf('elemhb.top') === -1 ? '' : 'http://101.132.113.122:3007') + '/hongbao', {
-          url: $.trim($('#url').val()),
-          mobile: $.trim($('#mobile').val())
-        })
+      var params = {
+        url: $.trim($('#url').val()),
+        mobile: $.trim($('#mobile').val())
+      }
+      var port = params.url.indexOf('https://activity.waimai.meituan.com/') === 0 ? 3008 : 3007
+      $.post((location.host.indexOf('elemhb.top') === -1 ? '' : 'http://101.132.113.122:' + port) + '/hongbao', params)
         .always(function () {
           $submit.text('马上领取').prop('disabled', false)
         })
@@ -130,7 +132,7 @@
         .fail(function (err) {
           alert('服务器繁忙，请稍后重试')
         })
-      localStorage.setItem('mobile', $('#mobile').val())
+      localStorage.setItem('mobile', params.mobile)
     })
 
     $('#mobile').val($.trim(localStorage.getItem('mobile')))

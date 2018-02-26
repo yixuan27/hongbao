@@ -1,6 +1,7 @@
 const axios = require('axios')
 const querystring = require('querystring')
 const cookie = require('./cookie')
+const redirect = require('./redirect')
 
 const origin = 'https://h5.ele.me'
 
@@ -15,9 +16,13 @@ async function request ({mobile, url} = {}) {
     throw new Error('请填写 11 位手机号码')
   }
 
-  let index = 0
+  // 短链接处理
+  if (/^https?:\/\/url\.cn\//i.test(url)) {
+    url = await redirect(url)
+  }
   const query = querystring.parse(url)
 
+  let index = 0
   const request = axios.create({
     baseURL: origin,
     withCredentials: true,

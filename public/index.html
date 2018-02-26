@@ -121,7 +121,7 @@
         url: $.trim($('#url').val()),
         mobile: $.trim($('#mobile').val())
       }
-      var port = params.url.indexOf('https://activity.waimai.meituan.com/') === 0 ? 3008 : 3007
+      var port = params.url.indexOf('waimai.meituan.com') !== -1 ? 3008 : 3007
       $.post((location.host.indexOf('elemhb.top') === -1 ? '' : 'http://101.132.113.122:' + port) + '/hongbao', params)
         .always(function () {
           $submit.text('马上领取').prop('disabled', false)

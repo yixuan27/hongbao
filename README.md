@@ -1,7 +1,7 @@
 # hongbao
 
 [![GPL-3.0](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](LICENSE)
-[![Sync Gitee](https://img.shields.io/badge/sync-gitee-green.svg)](https://gitee.com/game-helper/hongbao)
+[![Sync Gitee](https://img.shields.io/badge/sync-gitee-green.svg)](https://gitee.com/game-helper/eleme)
 [![Build Status](https://travis-ci.org/game-helper/hongbao.svg?branch=master)](https://travis-ci.org/game-helper/hongbao)
 
 一键领取饿了么、美团手气最佳红包 http://www.elemhb.top/

@@ -60,9 +60,18 @@
         <input type="mobile" class="form-control" id="mobile" placeholder="11位手机号码" maxlength="11">
       </div>
       <div class="form-group">
+        <label for="">要领取最佳红包的渠道</label><br>
+        <div class="btn-group" role="group" id="channel">
+          <button type="button" class="btn btn-primary" data-channel="">自动识别</button>
+          <button type="button" class="btn btn-default" data-channel="3007">饿了么</button>
+          <button type="button" class="btn btn-default" data-channel="3008">美团</button>
+        </div>
+      </div>
+      <div class="form-group">
         <label for="url">饿了么、美团分享出来的红包链接</label>
         <input type="text" class="form-control" id="url" placeholder="红包完整 URL 链接">
-        <p><br>饿了么：https://h5.ele.me/hongbao/开头的链接<br>美团：https://activity.waimai.meituan.com/开头的链接</p>
+        <p><br>饿了么：https://h5.ele.me/hongbao/开头的链接<br>美团：https://activity.waimai.meituan.com/开头的链接<br>短链接：http://url.cn/开头的链接
+        </p>
       </div>
       <div class="form-group">
         <button type="button" class="btn btn-danger" id="submit">马上领取</button>
@@ -117,11 +126,12 @@
     $('#submit').on('click', function (e) {
       var $submit = $(this)
       $submit.text('正在领取...').prop('disabled', true)
+      var channel = $('#channel > .btn-primary').data('channel')
       var params = {
         url: $.trim($('#url').val()),
         mobile: $.trim($('#mobile').val())
       }
-      var port = params.url.indexOf('waimai.meituan.com') !== -1 ? 3008 : 3007
+      var port = channel ? channel : (params.url.indexOf('waimai.meituan.com') !== -1 ? 3008 : 3007)
       $.post((location.host.indexOf('elemhb.top') === -1 ? '' : 'http://101.132.113.122:' + port) + '/hongbao', params)
         .always(function () {
           $submit.text('马上领取').prop('disabled', false)
@@ -136,6 +146,11 @@
     })
 
     $('#mobile').val($.trim(localStorage.getItem('mobile')))
+
+    $('#channel > button').on('click', function (e) {
+      $(this).addClass('btn-primary').remove('btn-default')
+        .siblings().addClass('btn-default').removeClass('btn-primary')
+    })
 
     $('.breadcrumb a').on('click', function (e) {
       _hmt.push(['_trackEvent', $(this).text(), 'click'])

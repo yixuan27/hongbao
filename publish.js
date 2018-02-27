@@ -13,7 +13,7 @@ gulp.task('server', async () => {
 })
 
 // 静态资源部署到阿里云 OSS
-gulp.task('client', () => gulp.src('client/**/*').pipe(ossSync({
+gulp.task('client', () => gulp.src('client/dist/**/*').pipe(ossSync({
   connect: {
     region: 'oss-cn-hongkong',
     accessKeyId: process.env.ALIOSS_ACCESS_KEY_ID,

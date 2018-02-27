@@ -1,6 +1,25 @@
 # hongbao/client
 
-没什么好说的，双击 `index.html` 即可运行，老夫写代码就用 jQuery
+## 开发与部署
 
-![老夫写代码就用 jQuery](https://user-images.githubusercontent.com/8413791/36666032-3ec3ce7e-1b24-11e8-93a7-95be5b7a4d52.png)
+建议安装 Node.js 9.x 以上
 
+安装依赖
+
+```bash
+npm i
+```
+
+开发模式
+
+```bash
+npm run dev
+```
+
+上线前构建
+
+```bash
+npm run build
+```
+
+将 build 之后产出的 dist 目录提交到服务器

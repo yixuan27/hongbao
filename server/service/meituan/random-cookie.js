@@ -1,12 +1,12 @@
-const nickname = require('./nickname')
-const openid = require('./openid')
+const randomNickname = require('./random-nickname')
+const randomOpenid = require('./random-openid')
 const crypto = require('./crypto')
 
-module.exports = () => {
+module.exports = (nickname = randomNickname()) => {
   const ewxinfo = {
+    nickname,
     imgUrl: '',
-    nickname: nickname(),
-    openId: openid()
+    openId: randomOpenid()
   }
   console.log(ewxinfo)
   return `ewxinfo="${crypto.encrypt(ewxinfo)}"`

@@ -1,6 +1,6 @@
 const axios = require('axios')
 const querystring = require('querystring')
-const randomPhone = require('../../common/phone')
+const randomPhone = require('../random-phone')
 const rohr = require('./rohr')
 const crypto = require('./crypto')
 const randomCookie = require('./random-cookie')
@@ -15,7 +15,7 @@ async function request ({url, mobile}) {
       channelUrlKey: url.match(/\/(?:sharechannelredirect|sharechannel)\/(.*?)\?/).pop()
     }
   } catch (e) {
-    throw new Error('请输入正确的红包链接')
+    throw new Error('美团红包链接不正确')
   }
 
   const request = axios.create({
@@ -42,7 +42,7 @@ async function request ({url, mobile}) {
 
   const {data} = await post('/async/coupon/sharechannelredirect', params)
   if (data === false) {
-    throw new Error('红包链接不正确\n或\n请求美团服务器失败')
+    throw new Error('美团红包链接不正确\n或\n请求美团服务器失败')
   }
   const lucky = ~~data.share_title.match(/第(\d+)个/).pop()
   console.log(`第 ${lucky} 个是手气最佳红包`)
@@ -64,7 +64,7 @@ async function request ({url, mobile}) {
         riskLevel: 71
       }, {
         headers: {
-          cookie: randomCookie()
+          cookie: randomCookie(userPhone2)
         }
       })
       // 4201 需要验证码
@@ -97,12 +97,7 @@ async function request ({url, mobile}) {
 }
 
 module.exports = async params => {
-  try {
-    const res = await request(params)
-    console.log(res)
-    return {message: `手气最佳红包已被领取\n\n手气最佳：${res.nick_name}\n红包金额：${res.coupon_price / 100} 元\n领取时间：${res.dateStr}`}
-  } catch (e) {
-    console.error(e)
-    return {message: e.message}
-  }
+  const res = await request(params)
+  console.log(res)
+  return {message: `手气最佳红包已被领取\n\n手气最佳：${res.nick_name}\n红包金额：${res.coupon_price / 100} 元\n领取时间：${res.dateStr}`}
 }

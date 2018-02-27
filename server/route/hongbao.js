@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const redirect = require('../common/redirect')
+const redirect = require('../service/redirect')
 const eleme = require('../service/eleme')
 const meituan = require('../service/meituan')
 

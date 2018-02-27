@@ -1,7 +1,7 @@
 const axios = require('axios')
 const querystring = require('querystring')
 const cookie = require('./cookie')
-const randomPhone = require('../../common/phone')
+const randomPhone = require('../random-phone')
 
 const origin = 'https://h5.ele.me'
 

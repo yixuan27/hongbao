@@ -1,4 +1,4 @@
-const random = require('../../common/random')
+const random = require('../random')
 
 module.exports = (length = 28) =>
   Array.from({length})

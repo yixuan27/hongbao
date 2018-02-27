@@ -19,7 +19,7 @@
       </div>
       <ul class="breadcrumb">
         <li>
-          <a href="https://github.com/game-helper/hongbao/" target="_blank">本站开源</a>
+          <a href="https://github.com/game-helper/hongbao" target="_blank">本站开源</a>
         </li>
         <li>
           <a href="https://github.com/game-helper/hongbao/issues/new" target="_blank">反馈问题</a>

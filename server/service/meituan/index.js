@@ -76,10 +76,13 @@ async function request ({url, mobile}) {
       // 7006 今日领取次数达达到上限
       // 4002 你已经抢过这个红包了
       // 4001 已过期（不知道是什么过期，我认为是红包，所以直接抛出了）
-      // 4003 没领到（什么鬼，暂时没处理）
+      // 4003 没领到（什么鬼）
       console.log(res.code, res.msg)
       if (res.code === 4001) {
         throw new Error(res.msg)
+      }
+      if (res.code === 4003) {
+        throw new Error('错误 4003\n我们暂时不知道如何处理，换个红包链接再来吧')
       }
       if ([1, 4000, 7003].includes(res.code)) {
         return res

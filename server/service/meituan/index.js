@@ -75,7 +75,11 @@ async function request ({url, mobile}) {
       // 7002 微信 cookie 不正确或失效
       // 7006 今日领取次数达达到上限
       // 4002 你已经抢过这个红包了
+      // 4001 已过期（不知道是什么过期，我认为是红包，所以直接抛出了）
       console.log(res.code, res.msg)
+      if (res.code === 4001) {
+        throw new Error(res.msg)
+      }
       if ([1, 4000, 7003].includes(res.code)) {
         return res
       }

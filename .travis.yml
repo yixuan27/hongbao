@@ -12,9 +12,11 @@ script:
     git config user.name 'Travis CI';
     git config user.email 'i@zhuweiyou.com';
     git push https://${GITEE_TOKEN}@gitee.com/game-helper/eleme.git master -f;
-    cd client;
+
+    cd web;
     npm i;
     npm run build;
+
     cd ..;
     npm run publish;
     fi

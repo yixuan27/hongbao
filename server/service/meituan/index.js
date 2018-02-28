@@ -4,6 +4,7 @@ const randomPhone = require('../random-phone')
 const rohr = require('./rohr')
 const crypto = require('./crypto')
 const randomCookie = require('./random-cookie')
+const logger = require('../logger')
 
 const origin = 'https://activity.waimai.meituan.com'
 
@@ -30,13 +31,13 @@ async function request ({url, mobile}) {
 
   async function post (url, params = {}, config = {}) {
     params._token = rohr.reload(`${url}?${querystring.stringify(params)}`)
-    // console.log(params)
+    // logger.trace(params)
     const {data} = await request.post(url, params, config)
     data.data = crypto.decrypto(data.data)
     if (typeof data.data === 'string') {
       data.data = JSON.parse(data.data)
     }
-    // console.log(data)
+    // logger.trace(data)
     return data
   }
 
@@ -45,12 +46,12 @@ async function request ({url, mobile}) {
     throw new Error('美团红包链接不正确\n或\n请求美团服务器失败')
   }
   const lucky = ~~data.share_title.match(/第(\d+)个/).pop()
-  console.log(`第 ${lucky} 个是手气最佳红包`)
+  logger.info(`第 ${lucky} 个是手气最佳红包`)
 
   return (async function lottery (userPhone2) {
     const res = await (async function grabShareCoupon () {
       const userPhone = userPhone2 || randomPhone(userPhone2)
-      console.log(`使用 ${userPhone} 尝试领取`)
+      logger.info(`使用 ${userPhone} 尝试领取`)
       const res = await post('/coupon/grabShareCoupon', {
         userPhone,
         channelUrlKey: data.channelUrlKey,
@@ -77,7 +78,7 @@ async function request ({url, mobile}) {
       // 4002 你已经抢过这个红包了
       // 4001 已过期（不知道是什么过期，我认为是红包，所以直接抛出了）
       // 4003 没领到（什么鬼）
-      console.log(res.code, res.msg)
+      logger.info(res.code, res.msg)
       if (res.code === 4001) {
         throw new Error(res.msg)
       }
@@ -96,16 +97,16 @@ async function request ({url, mobile}) {
     const length = res.data.wxCoupons.length
     const number = lucky - length
     if (number <= 0) {
-      console.log('手气最佳红包已被领取')
+      logger.info('手气最佳红包已被领取')
       return res.data.wxCoupons.find(w => w.bestLuck)
     }
-    console.log(`还有 ${number} 个是最佳红包`)
+    logger.info(`还有 ${number} 个是最佳红包`)
     return lottery(number === 1 ? mobile : null)
   })()
 }
 
 module.exports = async params => {
   const res = await request(params)
-  console.log(res)
+  logger.info(JSON.stringify(res)) // 很多地方加了 stringify，是为了日志不要换行
   return {message: `手气最佳红包已被领取\n\n手气最佳：${res.nick_name}\n红包金额：${res.coupon_price / 100} 元\n领取时间：${res.dateStr}`}
 }

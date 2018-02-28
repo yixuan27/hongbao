@@ -6,14 +6,14 @@ const axios = require('axios')
 gulp.task('server', async () => {
   const {data: {message}} = await axios({
     method: 'POST',
-    url: 'http://101.132.113.122:3007/publish',
+    url: 'https://hongbao.xxooweb.com/publish',
     data: process.env.ELEME_PUBLISH_KEY
   })
   console.log(message)
 })
 
 // 静态资源部署到阿里云 OSS
-gulp.task('client', () => gulp.src('client/dist/**/*').pipe(ossSync({
+gulp.task('web', () => gulp.src('web/dist/**/*').pipe(ossSync({
   connect: {
     region: 'oss-cn-hongkong',
     accessKeyId: process.env.ALIOSS_ACCESS_KEY_ID,
@@ -28,9 +28,9 @@ gulp.task('client', () => gulp.src('client/dist/**/*').pipe(ossSync({
   },
   controls: {
     headers: {
-      'Cache-Control': 'max-age=600'
+      'Cache-Control': 'max-age=1800'
     }
   }
 })))
 
-gulp.task('default', ['server', 'client'])
+gulp.task('default', ['server', 'web'])

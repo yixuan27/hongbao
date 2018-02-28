@@ -48,12 +48,9 @@
     data () {
       return {
         url: '',
-        mobile: '',
+        mobile: localStorage.getItem('mobile') || '',
         submit: false
       }
-    },
-    mounted () {
-      this.mobile = localStorage.getItem('mobile') || ''
     },
     methods: {
       async getHongbao () {

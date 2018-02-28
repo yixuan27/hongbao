@@ -12,7 +12,7 @@ module.exports = exclude => {
   let phone
   while (true) {
     phone = numbers[random(0, numbers.length - 1)] + String(Math.random() * 10).slice(-8)
-    // 别随机到了要领取的那个号，理论上应该收集使用辅助的用户手机号，都存起来排除
+    // 别随机到了要领取的那个号，理论上应该收集使用辅助的用户手机号都存起来排除，但为了保护隐私没有这样做
     if (phone !== exclude) {
       return phone
     }

@@ -3,6 +3,7 @@ const router = express.Router()
 const redirect = require('../service/redirect')
 const eleme = require('../service/eleme')
 const meituan = require('../service/meituan')
+const logger = require('../service/logger')
 
 router.post('/', async (req, res, next) => {
   try {
@@ -19,7 +20,7 @@ router.post('/', async (req, res, next) => {
       url = await redirect(url)
     }
 
-    console.log('开始抢红包', [url, mobile])
+    logger.info('开始抢红包', [url, mobile])
 
     if (url.indexOf('waimai.meituan.com') !== -1) {
       res.json(await meituan({url, mobile}))
@@ -29,7 +30,7 @@ router.post('/', async (req, res, next) => {
       throw new Error('红包链接不正确')
     }
   } catch (e) {
-    console.error(e.message)
+    logger.error(e.message)
     res.json({message: e.message})
   }
 })

@@ -1,5 +1,7 @@
 # hongbao/server
 
+服务端 https://hongbao.xxooweb.com/
+
 ## 开发与部署
 
 建议安装 Node.js 9.x 以上

@@ -18,6 +18,7 @@
 基于本项目的其它开源项目推荐，欢迎 PR
 
 - [dj940212/hongbao-bot](https://github.com/dj940212/hongbao-bot) - 外卖红包微信机器人
+- [chengzijian/ai-hongbao](https://github.com/chengzijian/ai-hongbao) - 微信机器人号领外卖红包
 
 ## 交流群
 

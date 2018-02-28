@@ -13,6 +13,12 @@
 - [server](server) - 服务端
 - [client](client) - 网页客户端（后续可能增加其它客户端）
 
+## 推荐
+
+基于本项目的其它开源项目推荐，欢迎 PR
+
+- [dj940212/hongbao-bot](https://github.com/dj940212/hongbao-bot) - 外卖红包微信机器人
+
 ## 交流群
 
 <table>

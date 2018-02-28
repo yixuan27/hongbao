@@ -36,6 +36,7 @@
 
 - [dj940212/hongbao-bot](https://github.com/dj940212/hongbao-bot) - 外卖红包微信机器人（nodejs）
 - [chengzijian/ai-hongbao](https://github.com/chengzijian/ai-hongbao) - 微信机器人号领外卖红包（python）
+- [lt94/package-qqbot](https://github.com/lt94/package-qqbot) - qq机器人号领外卖红包（python）
 
 ## 交流群
 

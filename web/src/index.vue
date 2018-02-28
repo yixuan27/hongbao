@@ -80,6 +80,9 @@
       toggleCoin () {
         this.coin = !this.coin
         localStorage.setItem('coin', this.coin)
+        if (!this.coin) {
+          return location.reload()
+        }
         this.tryCoin()
       },
       tryCoin () {

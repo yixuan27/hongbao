@@ -34,7 +34,7 @@
       </div>
       <div>
         <img src="./static/qrcode.png">
-        <p class="text-center"><b>红包分享交流微信群</b><br>请加上面的微信号邀请你入群</p>
+        <p class="text-center"><b>红包分享交流微信群</b><br>请加上面的微信号邀请你入群<br>（加群的朋友非常多，请耐心等待通过）</p>
       </div>
     </div>
   </div>

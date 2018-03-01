@@ -3,8 +3,5 @@ module.exports = options => ({
   staticFolder: 'public',
   html: {
     template: './src/index.html'
-  },
-  env: {
-    API_URL: options.mode === 'production' ? 'https://hongbao.xxooweb.com' : 'http://localhost:3007'
   }
 })

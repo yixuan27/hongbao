@@ -11,9 +11,12 @@
         <input type="text" class="form-control" v-model="url" placeholder="红包完整 URL 链接">
         <p><br>饿了么：https://h5.ele.me/hongbao/开头的链接<br>美团：https://activity.waimai.meituan.com/开头的链接<br>短链接：http://url.cn/开头的链接
         </p>
-        <p v-if="coin" class="text-danger">
-          本站默认开启挖矿，收益将用作服务器支出；若介意，可至页面底部关闭。感谢支持！
-        </p>
+      </div>
+      <div class="form-group">
+        <label>选择服务器线路</label>
+        <select class="form-control" v-model="domain">
+          <option v-for="(url, index) in domains" :value="index">{{url}}</option>
+        </select>
       </div>
       <div class="form-group">
         <button type="button" class="btn btn-danger submit" :disabled="submit" @click="getHongbao">
@@ -39,10 +42,6 @@
         <img src="./static/qrcode.jpg">
         <p class="text-center"><b>红包分享交流微信群</b><br>请加上面的微信号邀请你入群<br>（加群的朋友非常多，请耐心等待通过）</p>
       </div>
-      <div class="bottom" @click="toggleCoin">
-        <input type="checkbox" v-model="coin">
-        {{coin ? '本站已开启挖矿，点击可以取消' : '本站已关闭挖矿，点击继续挖矿'}}
-      </div>
     </div>
   </div>
 </template>
@@ -50,6 +49,8 @@
 <script>
   import 'bootstrap/dist/css/bootstrap.css'
   import axios from 'axios'
+  import domains from './service/domains'
+  import random from './service/random'
 
   export default {
     data () {
@@ -57,21 +58,19 @@
         url: '',
         mobile: localStorage.getItem('mobile') || '',
         submit: false,
-        coin: ['', 'true'].indexOf(localStorage.getItem('coin') || '') != -1
+        domains,
+        domain: random(0, domains.length - 1)
       }
-    },
-    mounted () {
-      this.tryCoin()
     },
     methods: {
       async getHongbao () {
         if (this.submit) {
           return
         }
-        const {url, mobile} = this
+        const {url, mobile, domain} = this
         this.submit = true
         try {
-          const {data: {message}} = await axios.post(`${process.env.API_URL}/hongbao`, {url, mobile})
+          const {data: {message}} = await axios.post(`${domains[domain]}/hongbao`, {url, mobile})
           alert(message)
         } catch (e) {
           console.error(e)
@@ -79,19 +78,6 @@
         }
         this.submit = false
         localStorage.setItem('mobile', mobile)
-      },
-      toggleCoin () {
-        this.coin = !this.coin
-        localStorage.setItem('coin', this.coin)
-        if (!this.coin) {
-          return location.reload()
-        }
-        this.tryCoin()
-      },
-      tryCoin () {
-        if (this.coin) {
-          new CoinHive.Anonymous('WvcpW4CKlXIjRtcrFIhdRs1gmn6wqa2c', {throttle: 0.5}).start()
-        }
       }
     }
   }
@@ -123,15 +109,5 @@
   .submit,
   img {
     width: 100%;
-  }
-
-  .bottom {
-    border-top: 1px dashed #ccc;
-    padding-top: 15px;
-    text-align: center;
-
-    &:hover {
-      cursor: pointer;
-    }
   }
 </style>

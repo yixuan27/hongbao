@@ -48,7 +48,13 @@ async function request ({url, mobile}) {
   const lucky = ~~data.share_title.match(/第(\d+)个/).pop()
   logger.info(`第 ${lucky} 个是手气最佳红包`)
 
+  let count = 0
+
   return (async function lottery (userPhone2) {
+    if (++count > 40) {
+      throw new Error('美团红包链接不正确\n或\n请求美团服务器失败')
+    }
+
     const res = await (async function grabShareCoupon () {
       const userPhone = userPhone2 || randomPhone(userPhone2)
       logger.info(`使用 ${userPhone} 尝试领取`)

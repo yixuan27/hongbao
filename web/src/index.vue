@@ -129,5 +129,9 @@
     border-top: 1px dashed #ccc;
     padding-top: 15px;
     text-align: center;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 </style>

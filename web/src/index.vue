@@ -15,7 +15,7 @@
       <div class="form-group">
         <label>选择服务器线路</label>
         <select class="form-control" v-model="domain">
-          <option v-for="(url, index) in domains" :value="index">{{url}}</option>
+          <option v-for="(url, index) in domains" :value="index">{{index + 1}}号服务器</option>
         </select>
       </div>
       <div class="form-group">

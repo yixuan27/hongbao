@@ -1,3 +1,4 @@
+// 感谢网友支持的服务器
 export default [
   'https://hongbao.xxooweb.com',
   'http://hongbao.dingjian.name',

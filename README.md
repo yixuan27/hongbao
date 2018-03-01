@@ -48,7 +48,7 @@
   <tr></tr>
   <tr>
     <td align="center" width="250">
-      <img src="https://user-images.githubusercontent.com/8413791/36705353-b2bf4c4c-1b9f-11e8-9c8c-be67de500ad2.png"><p>请加上面的微信号邀请你入群</p>
+      <img src="web/src/qrcode.jpg"><p>请加上面的微信号邀请你入群</p>
     </td>
     <td align="center" width="250"><a href="https://shang.qq.com/wpa/qunwpa?idkey=ce7ff4d1b5050c3bafff8f16c3cae4b1eec37916053865b86527347d680e03ec">246080018</a></td>
   </tr>

@@ -11,7 +11,7 @@
         <input type="text" class="form-control" v-model="url" placeholder="红包完整 URL 链接">
         <p><br>饿了么：https://h5.ele.me/hongbao/开头的链接<br>美团：https://activity.waimai.meituan.com/开头的链接<br>短链接：http://url.cn/开头的链接
         </p>
-        <p class="text-danger">
+        <p v-if="coin" class="text-danger">
           本站默认开启挖矿，收益将用作服务器支出；若介意，可至页面底部关闭。感谢支持！
         </p>
       </div>

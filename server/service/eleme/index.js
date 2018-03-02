@@ -3,13 +3,17 @@ const querystring = require('querystring')
 const cookie = require('./cookie')
 const randomPhone = require('../random-phone')
 const logger = require('../logger')
+const random = require('../random')
 
 const origin = 'https://h5.ele.me'
 
 async function request ({mobile, url} = {}) {
   const query = querystring.parse(url)
 
-  let index = 0
+  // 一定程度上错开了大家都同时从 0 绑的情况，虽然可能没什么卵用。
+  // 10：因为饿了么红包最多 10 人领，至少给后面留 10 个位置
+  let index = random(0, cookie.length - 10)
+
   const request = axios.create({
     baseURL: origin,
     withCredentials: true,

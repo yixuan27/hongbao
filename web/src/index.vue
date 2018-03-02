@@ -42,7 +42,7 @@
         <pre class="mutiline"><b>服务器很慢或者一直繁忙？</b><br>您可以尝试更换其它服务器线路，或者换一个红包链接再试。问题仍然存在，可以点击上面的反馈问题按钮，向我们反馈。</pre>
       </div>
       <div>
-        <img class="qrcode" src="./static/qrcode.jpg">
+        <img class="qrcode" src="https://user-images.githubusercontent.com/14065828/36884509-7ed90182-1e1c-11e8-91d6-8ccb4b4554a5.png">
         <p class="text-center"><b>红包分享交流微信群</b><br>请加上面的微信号邀请你入群<br>（加群的朋友非常多，请耐心等待通过）</p>
       </div>
     </div>

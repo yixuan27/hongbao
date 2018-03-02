@@ -9,10 +9,10 @@
       <div class="form-group">
         <label>饿了么、美团分享出来的红包链接</label>
         <input type="text" class="form-control" v-model="url" placeholder="红包完整 URL 链接">
+        <div class="text-danger tip">美团红包已失效，我们正在尝试修复，请暂时使用饿了么</div>
         <p><br>饿了么：https://h5.ele.me/hongbao/开头的链接<br>美团：https://activity.waimai.meituan.com/开头的链接<br>短链接：http://url.cn/开头的链接
         </p>
       </div>
-      <div class="text-danger">美团红包已失效，我们正在尝试修复，请暂时使用饿了么</div>
       <div class="form-group">
         <label>选择服务器线路</label>
         <select class="form-control" v-model="domain">
@@ -40,7 +40,7 @@
         <pre><b>如何复制红包链接？</b><br>分享到 QQ，选择 “我的电脑”，PC 版 QQ 复制链接<br>分享到微信，PC 版微信右键用浏览器打开，复制链接<br>长按微信分享的卡片，点击更多，发送邮件，复制链接</pre>
       </div>
       <div>
-        <img src="./static/qrcode.jpg">
+        <img class="qrcode" src="./static/qrcode.jpg">
         <p class="text-center"><b>红包分享交流微信群</b><br>请加上面的微信号邀请你入群<br>（加群的朋友非常多，请耐心等待通过）</p>
       </div>
     </div>
@@ -110,5 +110,15 @@
   .submit,
   img {
     width: 100%;
+  }
+
+  .tip {
+    white-space: nowrap;
+    padding-top: 15px;
+  }
+
+  .qrocde {
+    border-radius: 4px;
+    margin-bottom: 15px;
   }
 </style>

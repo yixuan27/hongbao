@@ -22,4 +22,3 @@ module.exports = nickname => {
   return `ewxinfo="${crypto.encrypt(ewxinfo)}"`
 }
 
-console.log(module.exports())

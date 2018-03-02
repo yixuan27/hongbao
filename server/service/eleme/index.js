@@ -65,7 +65,7 @@ async function request ({mobile, url} = {}) {
       // 有时候领取成功了，但是没有返回 lucky，再调一次就可以了
       const lucky = promotion_records.find(r => r.is_lucky) || await lottery(phone)
       logger.info('手气最佳红包已被领取', JSON.stringify(lucky))
-      return lucky
+      return (lucky && lucky.amount)
         ? `红包领取完毕\n\n手气最佳：${lucky.sns_username}\n红包金额：${lucky.amount} 元`
         : '红包被人抢完\n或\n服务器繁忙'
     }

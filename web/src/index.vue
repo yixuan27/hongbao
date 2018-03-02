@@ -117,7 +117,7 @@
     padding-top: 15px;
   }
 
-  .qrocde {
+  .qrcode {
     border-radius: 4px;
     margin-bottom: 15px;
   }

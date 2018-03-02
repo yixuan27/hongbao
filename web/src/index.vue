@@ -12,6 +12,7 @@
         <p><br>饿了么：https://h5.ele.me/hongbao/开头的链接<br>美团：https://activity.waimai.meituan.com/开头的链接<br>短链接：http://url.cn/开头的链接
         </p>
       </div>
+      <div class="text-danger">美团红包已失效，我们正在尝试修复，请暂时使用饿了么</div>
       <div class="form-group">
         <label>选择服务器线路</label>
         <select class="form-control" v-model="domain">

@@ -9,7 +9,7 @@
       <div class="form-group">
         <label>饿了么、美团分享出来的红包链接</label>
         <input type="text" class="form-control" v-model="url" placeholder="红包完整 URL 链接">
-        <div class="text-danger tip">美团红包已失效，我们正在尝试修复，请暂时使用饿了么</div>
+        <div class="text-danger tip">美团红包已失效，我们正在尝试修复，饿了么或成最大赢家</div>
         <p><br>饿了么：https://h5.ele.me/hongbao/开头的链接<br>美团：https://activity.waimai.meituan.com/开头的链接<br>短链接：http://url.cn/开头的链接
         </p>
       </div>
@@ -38,7 +38,7 @@
       <div>
         <pre><b>如何获取拼手气红包？</b><br>1. 好友下单后，分享到群里的红包<br>2. 饿了么、美团 APP 买过的订单点进去，分享红包</pre>
         <pre><b>如何复制红包链接？</b><br>1. 分享到 QQ，选择 “我的电脑”，PC 版 QQ 复制链接<br>2. 分享到微信，PC 版微信右键用浏览器打开，复制链接<br>3. 长按微信分享的卡片，点击更多，发送邮件，复制链接</pre>
-        <pre class="mutiline"><b>大红包被小号领掉了？</b><br>因为我们的内置账号有限，而访问网站的人太多了（高峰期有上万人），在更换您的手机号领取大包时，被其它人用小号换绑了。遇到这种情况请换一个红包链接再试，或者避开上午的高峰期使用。</pre>
+        <pre class="mutiline"><b>大红包被小号领掉了？</b><br>因为我们的内置账号有限，而访问网站的人太多了。在更换您的手机号领取大包时，被其它人用小号换绑了。遇到这种情况请换一个红包链接再试，或者避开上午的高峰期使用。</pre>
         <pre class="mutiline"><b>服务器很慢或者一直繁忙？</b><br>您可以尝试更换其它服务器线路，或者换一个红包链接再试。问题仍然存在，可以点击上面的反馈问题按钮，向我们反馈。</pre>
       </div>
       <div>

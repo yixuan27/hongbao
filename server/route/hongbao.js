@@ -23,7 +23,7 @@ router.post('/', async (req, res, next) => {
     logger.info('开始抢红包', [url, mobile])
 
     if (url.indexOf('waimai.meituan.com') !== -1) {
-      throw new Error('美团红包已失效，我们正在尝试修复，饿了么或成最大赢家')
+      throw new Error('美团辅助已失效，我们正在尝试修复，饿了么或成最大赢家')
       // res.json(await meituan({url, mobile}))
     } else if (url.indexOf('h5.ele.me') !== -1) {
       res.json(await eleme({url, mobile}))

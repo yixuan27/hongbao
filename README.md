@@ -18,15 +18,15 @@
   </tr>
   <tr></tr>
   <tr>
-    <td>小程序（已提交审核，暂未发布）</td>
-    <td><a href="weapp">weapp</a></td>
-    <td><img width="250" src="https://user-images.githubusercontent.com/8413791/36715980-a83644b8-1bd3-11e8-8c4f-f7554cc6936c.png"></td>
-  </tr>
-  <tr></tr>
-  <tr>
     <td>网页端</td>
     <td><a href="web">web</a></td>
     <td>http://www.elemhb.top/</td>
+  </tr>
+  <tr></tr>
+  <tr>
+    <td>小程序</td>
+    <td><a href="weapp">weapp</a></td>
+    <td>微信审核被拒了，先晾着吧</td>
   </tr>
 </table>
 

@@ -1,5 +1,5 @@
-const randomHeadimg = require('./random-headimg')
-const randomNickname = require('./random-nickname')
+const randomHeadimg = require('../random-headimg')
+const randomNickname = require('../random-nickname')
 const randomOpenid = require('./random-openid')
 const crypto = require('./crypto')
 const logger = require('../logger')

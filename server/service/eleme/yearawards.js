@@ -10,9 +10,13 @@ const random = require('../random')
 const origin = 'https://h5.ele.me'
 
 async function request ({url} = {}) {
-  const query = url.match(/\/share\/user_id\/(.*?)\/avatar_hash\//)
-  const user_id = query[1]
-  logger.info(query)
+  let user_id
+
+  try {
+    user_id = url.match(/\/share\/user_id\/(.*?)\/avatar_hash\//)[1]
+  } catch (e) {
+    throw new Error('饿了么年终奖红包链接不正确')
+  }
 
   let index = 0
 
@@ -38,31 +42,32 @@ async function request ({url} = {}) {
       return '年终奖红包 助力完成\n请自行访问红包链接查看效果'
     }
 
-    const phone = randomPhone()
-    // 绑定手机号
-    await request.put(`/restapi/v1/weixin/${sns.openid}/phone`, {
-      sign: sns.eleme_key,
-      phone
-    })
-    logger.info('绑定手机号', phone)
-
-    // 领红包
-    const wardUrl = `/restapi/member/v1/users/${user_id}/annual_reward/invitation`
-    const wardParams = {
-      avatar: randomHeadimg(),
-      name: randomNickname(),
-      eleme_key: sns.eleme_key,
-      sns_source: 4,
-      sns_uid: sns.openid,
-      weixin_open_id: sns.openid,
-    }
     try {
-      logger.info((await request.post(wardUrl, wardParams, {
+      const phone = randomPhone()
+      // 绑定手机号
+      await request.put(`/restapi/v1/weixin/${sns.openid}/phone`, {
+        sign: sns.eleme_key,
+        phone
+      })
+      logger.info('绑定手机号', phone)
+
+      // 领红包
+      const wardUrl = `/restapi/member/v1/users/${user_id}/annual_reward/invitation`
+      const wardParams = {
+        avatar: randomHeadimg(),
+        name: randomNickname(),
+        eleme_key: sns.eleme_key,
+        sns_source: 4,
+        sns_uid: sns.openid,
+        weixin_open_id: sns.openid,
+      }
+
+      await request.post(wardUrl, wardParams, {
         headers: {
           'content-type': 'text/plain;charset=UTF-8'
         }
-      })).data)
-      logger.info((await request.get(wardUrl, {params: wardParams})).data)
+      })
+      logger.info(JSON.stringify((await request.get(wardUrl, {params: wardParams})).data))
     } catch(e) {
       logger.error(e.message)
     }

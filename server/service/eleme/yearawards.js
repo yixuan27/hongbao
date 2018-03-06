@@ -78,7 +78,7 @@ function request ({url} = {}) {
     })()
   }
 
-  return `将使用 ${cookies.length} 个机器人为您助力饿了么年终奖红包\n请 1 分钟后访问红包链接查看效果\n（此类红包重复领取无效）`
+  return `将使用 ${cookies.length} 个机器人为您助力饿了么年终奖红包\n请 1 分钟后访问红包链接查看效果\n（红包重复领取无效）`
 }
 
 module.exports = options => ({message: request(options)})

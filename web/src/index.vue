@@ -185,11 +185,15 @@
       border: 0;
       box-shadow: none;
     }
+  }
 
+  @media screen and (max-width: 768px) {
     .ali-hongbao-pc {
       display: none;
     }
+  }
 
+  @media screen and (max-width: 1024px) {
     .ali-hongbao-m {
       display: block;
       width: 100%;

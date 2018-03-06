@@ -1,6 +1,5 @@
 const axios = require('axios')
-const querystring = require('querystring')
-const cookie = require('./cookie')
+const cookies = require('./cookies')
 const randomPhone = require('../random-phone')
 const randomHeadimg = require('../random-headimg')
 const randomNickname = require('../random-nickname')
@@ -10,13 +9,11 @@ const random = require('../random')
 const origin = 'https://h5.ele.me'
 
 function request ({url} = {}) {
-  let user_id
-
-  try {
-    user_id = url.match(/\/share\/user_id\/(.*?)\/avatar_hash\//)[1]
-  } catch (e) {
+  let userId = url.match(/\/share\/user_id\/(.*?)\/avatar_hash\//)
+  if (!userId) {
     return '饿了么年终奖红包 链接不正确'
   }
+  userId = userId[1]
 
   // 这里让它慢慢执行，不用等待结束，先返回结果给客户端
   run()
@@ -40,10 +37,10 @@ function request ({url} = {}) {
     })
 
     return (async function lottery () {
-      const sns = cookie[index]
+      const {sns} = cookies[index] || {}
 
       if (!sns) {
-        logger.info('助力结束')
+        logger.info('本次助力结束')
         return
       }
 
@@ -57,33 +54,31 @@ function request ({url} = {}) {
         logger.info('绑定手机号', phone)
 
         // 领红包
-        const wardUrl = `/restapi/member/v1/users/${user_id}/annual_reward/invitation`
-        const wardParams = {
+        const wUrl = `/restapi/member/v1/users/${userId}/annual_reward/invitation`
+        const wParams = {
           avatar: randomHeadimg(),
           name: randomNickname(),
           eleme_key: sns.eleme_key,
           sns_source: 4,
           sns_uid: sns.openid,
-          weixin_open_id: sns.openid,
+          weixin_open_id: sns.openid
         }
-
-        await request.post(wardUrl, wardParams, {
+        await request.post(wUrl, wParams, {
           headers: {
             'content-type': 'text/plain;charset=UTF-8'
           }
         })
-        logger.info(JSON.stringify((await request.get(wardUrl, {params: wardParams})).data))
+        logger.info(JSON.stringify((await request.get(wUrl, {params: wParams})).data))
       } catch (e) {
         logger.error(e.message)
       }
 
       index++
-
       return lottery()
     })()
   }
 
-  return `将使用 ${cookie.length} 个机器人为您助力饿了么年终奖红包\n请 1 分钟后访问红包链接查看效果\n（此类红包重复领取无效）`
+  return `将使用 ${cookies.length} 个机器人为您助力饿了么年终奖红包\n请 1 分钟后访问红包链接查看效果\n（此类红包重复领取无效）`
 }
 
 module.exports = options => ({message: request(options)})

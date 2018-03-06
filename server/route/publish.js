@@ -5,7 +5,7 @@ const path = require('path')
 const logger = require('../service/logger')
 
 router.post('/', async (req, res, next) => {
-  if (JSON.stringify(req.body).indexOf(process.env.ELEME_PUBLISH_KEY) !== -1) {
+  if (req.body.key === process.env.ELEME_PUBLISH_KEY) {
     exec(path.resolve(__dirname, '..', '..', 'publish.sh'))
     res.json({message: '正在发布中，稍后查看效果'})
     logger.info('正在发布中，稍后查看效果')

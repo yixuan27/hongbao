@@ -7,7 +7,9 @@ gulp.task('server', async () => {
   const {data: {message}} = await axios({
     method: 'POST',
     url: 'https://hongbao.xxooweb.com/publish',
-    data: process.env.ELEME_PUBLISH_KEY
+    data: {
+      key: process.env.ELEME_PUBLISH_KEY
+    }
   })
   console.log(message)
 })

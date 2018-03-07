@@ -8,7 +8,7 @@
 
 **饿了么、美团均已失效，感谢大家这段时间以来的支持**
 
-目前我们正在开发新版的美团辅助 https://github.com/game-helper/meituan
+[点击这里查看网站统计数据 (#45)](https://github.com/game-helper/hongbao/issues/45)
 
 > 仅供学习交流之用，请勿用于非法用途，否则产生的一切后果自行承担
 

@@ -3,8 +3,8 @@
     <div class="panel-heading">一键领取手气最佳红包</div>
     <div class="panel-body">
       <p>饿了么、美团均已失效，感谢大家这段时间以来的支持</p>
-      <p>目前我们正在开发<a href="https://github.com/game-helper/meituan" target="_blank">新版的美团辅助 game-helper/meituan</a></p>
-      <button type="button" class="btn btn-default ali-hongbao-m">支付宝天天领红包</button>
+      <p><a href="https://github.com/game-helper/hongbao/issues/45" target="_blank">点击这里查看网站统计数据</a></p>
+      <button type="button" class="btn btn-danger ali-hongbao-m">支付宝天天领红包</button>
       <div class="ali-hongbao-pc">
         <img src="./static/alihongbao.jpg">
         <p>支付宝天天领红包</p>
@@ -105,9 +105,7 @@
     .ali-hongbao-pc {
       display: none;
     }
-  }
 
-  @media screen and (max-width: 1024px) {
     .ali-hongbao-m {
       display: block;
       width: 100%;
